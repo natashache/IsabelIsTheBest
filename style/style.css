@@ -1,0 +1,142 @@
+html,body{height:100%}
+.bg_heart{
+  position:absolute;
+  z-indx:-1;
+  top:0;left:0;width:100%;
+  height:100%;overflow:hidden;
+  background: #f442f4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #f442f4, #f4c542); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #f442f4, #f4c542); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #f442f4, #f4c542); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #f442f4, #f4c542); /* Standard syntax */
+}
+
+.heart{position:absolute;top:-50%;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-m-transform:rotate(-45deg);transform:rotate(-45deg)}
+.heart:before{position:absolute;top:-50%;left:0;display:block;content:"";width:100%;height:100%;background:inherit;border-radius:100%;}
+.heart:after{position:absolute;top:0;right:-50%;display:block;content:"";width:100%;height:100%;background:inherit;border-radius:100%;}
+
+@-webkit-keyframes love {
+  0%{top:110%}
+}
+@-moz-keyframes love {
+  0%{top:110%}
+}
+@-ms-keyframes love {
+  0%{top:110%}
+}
+@keyframes love {
+  0%{top:110%}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic);
+
+.box {
+  background: #f442f4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #f442f4, #f4c542); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #f442f4, #f4c542);  For Opera 11.1 to 12.0
+  background: -moz-linear-gradient(bottom right, #f442f4, #f4c542); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #f442f4, #f4c542); /* Standard syntax */
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  padding-bottom: 3em;
+}
+.pic {
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+  position: relative;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+}
+.title {
+  padding: 1em;
+  padding-top: 0;
+  margin-top: 2em;
+  font-size:30px;
+  font-family: 'Fontdiner Swanky', cursive;
+  /*position: relative;*/
+  text-align: center;
+/*  top: 50%;
+  left: 50%;
+  tranform: translate(-50%, -50%);*/
+}
+
+.inboxText {
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 0.5em;
+  text-align: center;
+}
+.clickMe {
+  font-family: 'Gloria Hallelujah', cursive;
+  display: block;
+  text-align: center;
+}
+
+.titleWrap {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  top: -0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.cardWrap {
+  width: 30em;
+  height: 15em;
+  position: relative;
+  perspective: 1000px;
+  border-radius: 0.5em;
+  /*padding: 1em;*/
+  /*margin-bottom: 1em;*/
+  text-align:center;
+  justify-content:center;
+  align-items:center;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+#card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+#card div {
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:6px;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-smoothing:antialiased;
+    color:#47525D;
+}
+
+#card .back {
+  background: pink;
+  /*transform:rotateY(180deg);*/
+}
+
+#card .front {
+  background: blue;
+  transform:rotateY(360deg);
+}
+
+#card.flipped {
+  transform: rotateY(360deg);
+}
