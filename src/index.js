@@ -6,19 +6,10 @@ import ReactDOM from 'react-dom'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { click: 0, condition: false }
-    this.handleClick = this.handleClick.bind(this)
-    this.displayText = this.displayText.bind(this)
-  }
-
-
-  handleClick() {
-    let click = this.state.click + 1;
-    this.setState( { condition : !this.state.condition, click: click } );
-  }
-
-  displayText() {
-    const texts = [
+    this.state = { click: 0,
+      condition: false,
+      num: -1,
+      texts:[
       'is kind',
       'is smart',
       'loves to laugh',
@@ -57,8 +48,32 @@ class App extends Component {
       'loves animals',
       'is always supportive',
       'shows up'
-    ]
-    let num = Math.floor(Math.random() * (texts.length - 1))
+      ]
+    }
+    this.handleClick = this.handleClick.bind(this)
+    this.displayText = this.displayText.bind(this)
+  }
+
+
+  handleClick() {
+    let click = this.state.click + 1
+    var num
+    if(this.state.num < this.state.texts.length - 1) {
+      num = this.state.num +1
+    } else {
+      num = 0
+    }
+
+    this.setState( {
+      condition : !this.state.condition,
+      click: click,
+      num: num
+    } );
+  }
+
+  displayText() {
+    // let num = Math.floor(Math.random() * (texts.length - 1))
+    const num = this.state.num
     if(this.state.click === 0) {
       return (
         <div>
@@ -68,7 +83,7 @@ class App extends Component {
     } else {
       return (
         <div className='inboxText'>
-          <h1 > {`Because she ${texts[num]}!`} </h1>
+          <h1 > {`Because she ${this.state.texts[num]}!`} </h1>
           <p >(click me again)</p>
         </div>
       )

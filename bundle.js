@@ -79,7 +79,11 @@
 
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-	    _this.state = { click: 0, condition: false };
+	    _this.state = { click: 0,
+	      condition: false,
+	      num: -1,
+	      texts: ['is kind', 'is smart', 'loves to laugh', 'is a good witch', 'is beautiful', 'plays ukulele', 'is beautiful', 'has a precious loving heart', 'is a badass', 'helps others', 'works hard', 'can beat the shit out of you if she wants to', 'has a sexy ass', 'has great teeth', 'knows the future', 'looks great in jeans', 'looks great in a dress', 'stays healthy', 'makes delicious pies', 'is an empath', 'is full of love', 'is compassionate to others', 'is funny', 'looks fab without makeup', 'cheers you up', 'calms you down', 'radiates light', 'is disciplined', 'is a source of joy', 'makes you smile', 'is a great friend', 'is positive', 'knows the truth', 'is full of wisdom', 'makes people feel good', 'loves animals', 'is always supportive', 'shows up']
+	    };
 	    _this.handleClick = _this.handleClick.bind(_this);
 	    _this.displayText = _this.displayText.bind(_this);
 	    return _this;
@@ -89,13 +93,24 @@
 	    key: 'handleClick',
 	    value: function handleClick() {
 	      var click = this.state.click + 1;
-	      this.setState({ condition: !this.state.condition, click: click });
+	      var num;
+	      if (this.state.num < this.state.texts.length - 1) {
+	        num = this.state.num + 1;
+	      } else {
+	        num = 0;
+	      }
+
+	      this.setState({
+	        condition: !this.state.condition,
+	        click: click,
+	        num: num
+	      });
 	    }
 	  }, {
 	    key: 'displayText',
 	    value: function displayText() {
-	      var texts = ['is kind', 'is smart', 'loves to laugh', 'is a good witch', 'is beautiful', 'plays ukulele', 'is beautiful', 'has a precious loving heart', 'is a badass', 'helps others', 'works hard', 'can beat the shit out of you if she wants to', 'has a sexy ass', 'has great teeth', 'knows the future', 'looks great in jeans', 'looks great in a dress', 'stays healthy', 'makes delicious pies', 'is an empath', 'is full of love', 'is compassionate to others', 'is funny', 'looks fab without makeup', 'cheers you up'];
-	      var num = Math.floor(Math.random() * (texts.length - 1));
+	      // let num = Math.floor(Math.random() * (texts.length - 1))
+	      var num = this.state.num;
 	      if (this.state.click === 0) {
 	        return _react2.default.createElement(
 	          'div',
@@ -114,7 +129,7 @@
 	            'h1',
 	            null,
 	            ' ',
-	            'Because she ' + texts[num] + '!',
+	            'Because she ' + this.state.texts[num] + '!',
 	            ' '
 	          ),
 	          _react2.default.createElement(
