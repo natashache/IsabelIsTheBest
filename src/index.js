@@ -43,7 +43,20 @@ class App extends Component {
       'is compassionate to others',
       'is funny',
       'looks fab without makeup',
-      'cheers you up'
+      'cheers you up',
+      'calms you down',
+      'radiates light',
+      'is disciplined',
+      'is a source of joy',
+      'makes you smile',
+      'is a great friend',
+      'is positive',
+      'knows the truth',
+      'is full of wisdom',
+      'makes people feel good',
+      'loves animals',
+      'is always supportive',
+      'shows up'
     ]
     let num = Math.floor(Math.random() * (texts.length - 1))
     if(this.state.click === 0) {
